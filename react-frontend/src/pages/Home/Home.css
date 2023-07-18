@@ -33,8 +33,9 @@
 }
 
 .addTask {
-  background-color: azure;
-  padding: 5px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .inputDiv {
@@ -42,8 +43,22 @@
 }
 
 .addBtn {
-  height: 30px;
-  width: 30px;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addBtn:focus {
+  border: 0px;
+  box-shadow: "none";
+}
+
+.addBtn:active {
+  border: 0px;
+  box-shadow: "none";
 }
 
 .logoutDiv {
@@ -69,4 +84,19 @@
 .form-select:active {
   border: 0px;
   box-shadow: "none";
+}
+
+.titleInput {
+  border: 0px;
+  box-shadow: "none";
+}
+
+.btnConatiner {
+}
+
+.typeContainer {
+  backdrop-filter: blur(5px);
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5;
 }

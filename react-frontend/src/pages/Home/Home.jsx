@@ -3,10 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import CheckCircleIcon from "./CheckCircleIcon";
-import ChevronIcon from "./ChevronIcon";
 import DotIcon from "./DotIcon";
 import ListIcon from "./ListIcon";
-import PlusIcon from "./PlusIcon";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -35,8 +33,7 @@ const Home = () => {
       <div className="background"></div>
       <div className="logoutDiv">
         <button
-          className="btn btn-lg my-btn"
-          style={{ zIndex: 1000 }}
+          className="btn btn-lg my-btn2"
           onClick={() => {
             localStorage.removeItem("token");
             navigate("/");
@@ -45,13 +42,13 @@ const Home = () => {
           Logout
         </button>
       </div>
-      <div className="inner-div" style={{ zIndex: 1000 }}>
+      <div className="inner-div">
         <div className="profilePicture"></div>
         <div className="row addTask">
           <div className="col-9 inputDiv">
             <input
               type="text"
-              className="form-control"
+              className="form-control titleInput"
               value={title}
               placeholder="Add new Task"
               onChange={(e) => {
@@ -59,7 +56,7 @@ const Home = () => {
               }}
             />
           </div>
-          <div className="col">
+          <div className="col btnContainer">
             <button
               className="btn addBtn col"
               onClick={async () => {
@@ -83,20 +80,20 @@ const Home = () => {
                   });
               }}
             >
-              +{/* <PlusIcon /> */}
+              {/* +<PlusIcon /> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 448 512"
+                style={{ fill: "white" }}
+              >
+                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+              </svg>
             </button>
           </div>
         </div>
 
-        <div
-          className="row"
-          style={{
-            backdropFilter: "blur(5px)",
-            border: "1px solid black",
-            backgroundColor: "rgba(0,0,0,0.5)",
-            borderRadius: 5,
-          }}
-        >
+        <div className="row typeContainer">
           <div className="col-1">
             <ListIcon height="25" />
           </div>
