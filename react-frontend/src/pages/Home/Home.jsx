@@ -1,9 +1,7 @@
 import "./Home.css";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import CheckCircleIcon from "./CheckCircleIcon";
-import DotIcon from "./DotIcon";
 import ListIcon from "./ListIcon";
 import Collapsible from "../../components/Collapsible";
 
@@ -84,7 +82,6 @@ const Home = () => {
                   });
               }}
             >
-              {/* +<PlusIcon /> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
@@ -126,55 +123,28 @@ const Home = () => {
                 setType(e.target.value);
               }}
             >
-              <option selected value="uncompleted">
-                Your todos
-              </option>
+              <option value="uncompleted">Your todos</option>
               <option value="completed">Completed</option>
-              <option value="all">All</option>
+              <option selected value="all">
+                All
+              </option>
             </select>
           </div>
         </div>
 
         <div className="tasksList">
-          {/* <Collapsible>
-            This is the content of the collapsible component.
-          </Collapsible> */}
           {tasks.length > 0 ? (
             type === "all" ? (
               tasks.map((task) => {
-                return (
-                  <Collapsible task={task}>HEllo</Collapsible>
-                  // <div className="row taskDiv">
-                  //   <div className="col-1">
-                  //     <CheckCircleIcon height="30" />
-                  //   </div>
-                  //   <div className="col-9 taskTitle">{task.title}</div>
-                  //   <div className="col-1">
-                  //     <DotIcon height="30" />
-                  //   </div>
-                  // </div>
-                );
+                return <Collapsible task={task} />;
               })
             ) : type === "completed" ? (
               tasks.map((task) => {
-                return task.completed ? (
-                  <Collapsible task={task}>HEllo</Collapsible>
-                ) : null;
+                return task.isCompleted ? <Collapsible task={task} /> : null;
               })
             ) : (
               tasks.map((task) => {
-                return !task.completed ? (
-                  <Collapsible task={task}>HEllo</Collapsible>
-                ) : // <div className="row taskDiv">
-                //   <div className="col-1">
-                //     <CheckCircleIcon height="30" />
-                //   </div>
-                //   <div className="col-9 taskTitle">{task.title}</div>
-                //   <div className="col-1">
-                //     <DotIcon height="30" />
-                //   </div>
-                // </div>
-                null;
+                return !task.isCompleted ? <Collapsible task={task} /> : null;
               })
             )
           ) : (
