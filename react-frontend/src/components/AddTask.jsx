@@ -7,7 +7,7 @@ const AddTask = () => {
   const handleAdd = async () => {
     axios
       .post(
-        "http://localhost:3000/api/tasks",
+        "https://nice-gear-worm.cyclic.app/api/tasks",
         { title: title },
         {
           headers: {

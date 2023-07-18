@@ -40,7 +40,7 @@ const Login = (props) => {
               className="btn btn-lg my-btn"
               onClick={(e) => {
                 axios
-                  .post("http://localhost:3000/api/users/login", {
+                  .post("https://nice-gear-worm.cyclic.app/api/users/login", {
                     email,
                     password,
                   })

@@ -52,11 +52,14 @@ const Register = (props) => {
               className="btn btn-lg my-btn"
               onClick={(e) => {
                 axios
-                  .post("http://localhost:3000/api/users/register", {
-                    email,
-                    name,
-                    password,
-                  })
+                  .post(
+                    "https://nice-gear-worm.cyclic.app/api/users/register",
+                    {
+                      email,
+                      name,
+                      password,
+                    }
+                  )
                   .then((res) => {
                     console.log(res);
                     localStorage.setItem("token", res.data);

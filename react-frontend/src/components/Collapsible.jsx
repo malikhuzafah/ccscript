@@ -19,7 +19,7 @@ const Collapsible = ({ task }) => {
           onClick={() => {
             axios
               .put(
-                "http://localhost:3000/api/tasks/" + task._id,
+                "https://nice-gear-worm.cyclic.app/api/tasks/" + task._id,
                 {
                   isCompleted: !isCompleted,
                 },
@@ -64,9 +64,14 @@ const Collapsible = ({ task }) => {
               className="btn delete-btn"
               onClick={() => {
                 axios
-                  .delete("http://localhost:3000/api/tasks/" + task._id, {
-                    headers: { "x-auth-token": localStorage.getItem("token") },
-                  })
+                  .delete(
+                    "https://nice-gear-worm.cyclic.app/api/tasks/" + task._id,
+                    {
+                      headers: {
+                        "x-auth-token": localStorage.getItem("token"),
+                      },
+                    }
+                  )
                   .then((res) => {
                     console.log(res);
                     window.location.reload();
