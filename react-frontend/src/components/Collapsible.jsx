@@ -57,7 +57,7 @@ const Collapsible = ({ task }) => {
           {task.isCompleted ? "Completed" : "Not Completed"}
           <br />
           <span style={{ fontWeight: "bold" }}>Created At:</span>{" "}
-          {task.createdAt}
+          {new Date(task.createdAt).toLocaleString()}
           <br />
           <div style={{ textAlign: "center" }}>
             <button
