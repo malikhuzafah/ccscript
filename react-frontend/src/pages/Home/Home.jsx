@@ -134,11 +134,11 @@ const Home = () => {
                 setType(e.target.value);
               }}
             >
-              <option selected value="all">
+              <option selected value="uncompleted">
                 Your todos
               </option>
               <option value="completed">Completed</option>
-              <option value="uncompleted">Uncompleted</option>
+              <option value="all">All</option>
             </select>
           </div>
           {/* <div className="col-1" style={{ width: 25, height: 25 }}>
@@ -147,42 +147,48 @@ const Home = () => {
         </div>
 
         <div className="tasksList">
-          <div
-            className="row"
-            style={{
-              // height: 50,
-              padding: "20px 10px",
-              borderRadius: "10px",
-              borderBottom: "1px solid black",
-              width: "100%",
-              margin: 0,
-            }}
-          >
-            <div className="col-1">
-              <CheckCircleIcon height="30" />
-            </div>
-            <div
-              className="col-9"
-              style={{ textAlign: "start", fontSize: 20, marginLeft: "10px" }}
-            >
-              Task 1
-            </div>
-            <div className="col-1">
-              <DotIcon height="30" />
-            </div>
-          </div>
-          {/* {tasks.length > 0 ? (
+          {tasks.length > 0 ? (
             type === "all" ? (
               tasks.map((task) => {
-                return <div>{task.title}</div>;
+                return (
+                  <div className="row taskDiv">
+                    <div className="col-1">
+                      <CheckCircleIcon height="30" />
+                    </div>
+                    <div className="col-9 taskTitle">{task.title}</div>
+                    <div className="col-1">
+                      <DotIcon height="30" />
+                    </div>
+                  </div>
+                );
               })
             ) : type === "completed" ? (
               tasks.map((task) => {
-                return task.completed ? <div>{task.title}</div> : null;
+                return task.completed ? (
+                  <div className="row taskDiv">
+                    <div className="col-1">
+                      <CheckCircleIcon height="30" />
+                    </div>
+                    <div className="col-9 taskTitle">{task.title}</div>
+                    <div className="col-1">
+                      <DotIcon height="30" />
+                    </div>
+                  </div>
+                ) : null;
               })
             ) : (
               tasks.map((task) => {
-                return !task.completed ? <div>{task.title}</div> : null;
+                return !task.completed ? (
+                  <div className="row taskDiv">
+                    <div className="col-1">
+                      <CheckCircleIcon height="30" />
+                    </div>
+                    <div className="col-9 taskTitle">{task.title}</div>
+                    <div className="col-1">
+                      <DotIcon height="30" />
+                    </div>
+                  </div>
+                ) : null;
               })
             )
           ) : (
@@ -197,7 +203,7 @@ const Home = () => {
             >
               No task today
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </>
