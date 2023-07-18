@@ -13,7 +13,7 @@ const Home = () => {
 
   const getTasks = () => {
     axios
-      .get("http://localhost:3000/api/tasks", {
+      .get("https://nice-gear-worm.cyclic.app/api/tasks", {
         headers: {
           "x-auth-token": localStorage.getItem("token"),
         },
