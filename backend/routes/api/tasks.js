@@ -32,6 +32,7 @@ router.post("/", auth, validateTask, async (req, res) => {
     if (!req.body.title) return res.status(400).send("No title given");
     const task = new Task();
     task.title = req.body.title;
+    task.userId = req.user._id;
     await task.save();
     return res.send(task);
   } catch (err) {

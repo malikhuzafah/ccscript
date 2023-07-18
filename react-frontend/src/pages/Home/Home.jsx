@@ -11,14 +11,23 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/tasks")
+      .get("http://localhost:3000/api/tasks", {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      })
       .then((res) => {
+        console.log(res.data);
         setTasks(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-    axios.get("http://localhost:3000/api/tasks");
+    // axios.get("http://localhost:3000/api/tasks", {
+    //   headers: {
+    //     "x-auth-token": localStorage.getItem("token"),
+    //   },
+    // });
   }, []);
 
   return (
@@ -55,7 +64,15 @@ const Home = () => {
               className="btn addBtn col"
               onClick={async () => {
                 axios
-                  .post("http://localhost:3000/api/tasks", { title: title })
+                  .post(
+                    "http://localhost:3000/api/tasks",
+                    { title: title },
+                    {
+                      headers: {
+                        "x-auth-token": localStorage.getItem("token"),
+                      },
+                    }
+                  )
                   .then((res) => {
                     setTitle("");
                     console.log(res.data);
