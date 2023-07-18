@@ -5,21 +5,13 @@ import axios from "axios";
 import CheckCircleIcon from "./CheckCircleIcon";
 import DotIcon from "./DotIcon";
 import ListIcon from "./ListIcon";
+import Collapsible from "../../components/Collapsible";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
   const [type, setType] = useState("all");
   const [completed, setCompleted] = useState(false);
-  const [reload, setReload] = useState(false);
-  const task = {
-    title: "title",
-    completed: false,
-    createdAt: "2021-07-03T12:00:00.000Z",
-    updatedAt: "2021-07-03T12:00:00.000Z",
-    __v: 0,
-    _id: "60e0b4b0c3b0c71f0c3b0c71",
-  };
 
   const navigate = useNavigate();
 
@@ -37,7 +29,7 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [reload]);
+  }, []);
 
   return (
     <>
@@ -83,7 +75,7 @@ const Home = () => {
                   )
                   .then((res) => {
                     setTitle("");
-                    setReload(!reload);
+                    window.location.reload();
                     console.log(res.data);
                   })
                   .catch((err) => {
@@ -141,54 +133,48 @@ const Home = () => {
               <option value="all">All</option>
             </select>
           </div>
-          {/* <div className="col-1" style={{ width: 25, height: 25 }}>
-            <ChevronIcon height="25px" />
-          </div> */}
         </div>
 
         <div className="tasksList">
+          {/* <Collapsible>
+            This is the content of the collapsible component.
+          </Collapsible> */}
           {tasks.length > 0 ? (
             type === "all" ? (
               tasks.map((task) => {
                 return (
-                  <div className="row taskDiv">
-                    <div className="col-1">
-                      <CheckCircleIcon height="30" />
-                    </div>
-                    <div className="col-9 taskTitle">{task.title}</div>
-                    <div className="col-1">
-                      <DotIcon height="30" />
-                    </div>
-                  </div>
+                  <Collapsible task={task}>HEllo</Collapsible>
+                  // <div className="row taskDiv">
+                  //   <div className="col-1">
+                  //     <CheckCircleIcon height="30" />
+                  //   </div>
+                  //   <div className="col-9 taskTitle">{task.title}</div>
+                  //   <div className="col-1">
+                  //     <DotIcon height="30" />
+                  //   </div>
+                  // </div>
                 );
               })
             ) : type === "completed" ? (
               tasks.map((task) => {
                 return task.completed ? (
-                  <div className="row taskDiv">
-                    <div className="col-1">
-                      <CheckCircleIcon height="30" />
-                    </div>
-                    <div className="col-9 taskTitle">{task.title}</div>
-                    <div className="col-1">
-                      <DotIcon height="30" />
-                    </div>
-                  </div>
+                  <Collapsible task={task}>HEllo</Collapsible>
                 ) : null;
               })
             ) : (
               tasks.map((task) => {
                 return !task.completed ? (
-                  <div className="row taskDiv">
-                    <div className="col-1">
-                      <CheckCircleIcon height="30" />
-                    </div>
-                    <div className="col-9 taskTitle">{task.title}</div>
-                    <div className="col-1">
-                      <DotIcon height="30" />
-                    </div>
-                  </div>
-                ) : null;
+                  <Collapsible task={task}>HEllo</Collapsible>
+                ) : // <div className="row taskDiv">
+                //   <div className="col-1">
+                //     <CheckCircleIcon height="30" />
+                //   </div>
+                //   <div className="col-9 taskTitle">{task.title}</div>
+                //   <div className="col-1">
+                //     <DotIcon height="30" />
+                //   </div>
+                // </div>
+                null;
               })
             )
           ) : (

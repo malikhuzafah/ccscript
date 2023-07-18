@@ -81,6 +81,7 @@
   height: 250px;
   width: 100%;
   margin-top: 10px;
+  overflow: scroll;
 }
 
 .titleInput {
@@ -142,4 +143,14 @@
   text-align: start;
   font-size: 20px;
   margin-left: "10px";
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 10px;
+  background-color: rgba(169, 143, 117, 0.5);
+  width: "100%";
 }
