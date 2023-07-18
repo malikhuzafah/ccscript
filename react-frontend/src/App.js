@@ -1,21 +1,19 @@
 import "./App.css";
-import NotFound from "./pages/NotFound/NotFound";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
     <Router>
-      {/* <div className="background"> */}
       <Routes>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {/* </div> */}
     </Router>
   );
 }

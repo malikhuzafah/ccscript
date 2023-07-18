@@ -42,12 +42,16 @@
 }
 
 .addBtn {
-  height: 25px;
-  width: 25;
+  height: 30px;
+  width: 30px;
 }
 
 .logoutDiv {
   position: absolute;
   top: 5px;
   right: 5px;
+}
+
+.tasksList {
+  background-color: antiquewhite;
 }
