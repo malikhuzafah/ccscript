@@ -48,10 +48,25 @@
 
 .logoutDiv {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 30px;
+  right: 30px;
 }
 
 .tasksList {
   background-color: antiquewhite;
+}
+
+.form-select:focus {
+  border: 0px;
+  box-shadow: "none";
+}
+
+.form-select:hover {
+  border: 0px;
+  box-shadow: "none";
+}
+
+.form-select:active {
+  border: 0px;
+  box-shadow: "none";
 }

@@ -3,8 +3,19 @@
 }
 
 .my-btn {
-  border-radius: 25%;
-  background-color: #282c34;
+  font-weight: bold;
+  border: 2px solid;
+  color: #efeee5;
+  border-radius: 50px;
+  /* background-color: #efeee5; */
+  border-color: #efeee5;
+}
+
+.my-btn:hover {
+  background-color: #1a1a1d;
+  border-color: #1a1a1d;
+  color: #efeee5;
+  transition: 500ms;
 }
 
 /* .background {

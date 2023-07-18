@@ -40,7 +40,7 @@ const Home = () => {
       <div className="background"></div>
       <div className="logoutDiv">
         <button
-          className="btn btn-lg"
+          className="btn btn-lg my-btn"
           style={{ zIndex: 1000 }}
           onClick={() => {
             localStorage.removeItem("token");
@@ -93,12 +93,30 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="row">
+        <div
+          className="row"
+          style={{
+            backdropFilter: "blur(5px)",
+            border: "1px solid black",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            borderRadius: 5,
+          }}
+        >
           <div className="col-1">
             <ListIcon height="25" />
           </div>
-          <div className="col-9">
-            <select name="" id="" className="form-select col-3">
+          <div className="col" style={{ margin: 0, padding: 0 }}>
+            <select
+              name=""
+              className="form-select col-3"
+              style={{
+                border: "none",
+                outline: "none",
+                color: "white",
+                margin: 0,
+                backgroundColor: "transparent",
+              }}
+            >
               <option value="">Your todos</option>
               <option value="">Completed</option>
               <option value="">Uncompleted</option>
@@ -114,7 +132,6 @@ const Home = () => {
             return <div>{task.title}</div>;
           })}
         </div>
-        {/* <ListIcon /> */}
       </div>
     </>
   );

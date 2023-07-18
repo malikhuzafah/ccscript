@@ -1,4 +1,5 @@
 import React from "react";
+import "./Login.css";
 import { Link } from "react-router-dom";
 import Auth from "../../components/Auth";
 import axios from "axios";
@@ -9,16 +10,10 @@ const Login = (props) => {
 
   return (
     <Auth>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <div style={{ width: "60%" }}>
-          <div style={{ padding: 10 }}>
+      <div className="loginBackground">
+        <div className="mainDiv">
+          <h1 className="title">Login</h1>
+          <div className="inputItem">
             <input
               className="form-control"
               type="email"
@@ -29,10 +24,9 @@ const Login = (props) => {
               }}
             />
           </div>
-          <div style={{ padding: 10 }}>
+          <div className="inputItem">
             <input
               className="form-control"
-              style={{ borderRadius: 25 }}
               placeholder="Password"
               type="password"
               value={password}
@@ -41,10 +35,9 @@ const Login = (props) => {
               }}
             />
           </div>
-          <div style={{ padding: 10, textAlign: "center" }}>
+          <div className="btn-container">
             <button
-              className="btn my-btn"
-              style={{ borderRadius: 25 }}
+              className="btn btn-lg my-btn"
               onClick={(e) => {
                 axios
                   .post("http://localhost:3000/api/users/login", {
@@ -57,16 +50,20 @@ const Login = (props) => {
                     window.location = "/home";
                   })
                   .catch((err) => {
+                    alert(err.response.data);
                     console.log(err);
                   });
               }}
             >
-              Register
+              Login
             </button>
           </div>
-          <div style={{ textAlign: "center" }}>
+          <div className="bottom-text">
             <p>
-              Already have an account? <Link to="/">Register</Link>
+              Already have an account?{" "}
+              <Link className="bottom-text" to="/">
+                Register
+              </Link>
             </p>
           </div>
         </div>
