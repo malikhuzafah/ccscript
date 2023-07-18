@@ -1,18 +1,16 @@
 .background {
   height: 100vh;
-  background-image: url("./image.webp");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./image.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: "flex";
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
   justify-content: "center";
   align-items: "center";
-  /* marginTop: 10,
-  // borderRadius: 25,
-  // height: "100%",
-  // boxShadow: "0 5px 10px 5px rgba(0, 0, 0, 0.25)",*/
+  background-color: rgba(169, 143, 117, 0.5);
 }
 
 .inner-div {
@@ -20,8 +18,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 30%;
+  text-align: center;
 }
 
 .profilePicture {
@@ -30,12 +32,17 @@
   height: 150px;
   width: 150px;
   border-radius: 50%;
+  border: 2px solid black;
+  margin-bottom: 10px;
 }
 
 .addTask {
   background-color: white;
   padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 5px;
+  width: 100%;
 }
 
 .inputDiv {
@@ -45,7 +52,7 @@
 .addBtn {
   height: 100%;
   width: 100%;
-  background-color: black;
+  background-color: #a98f75;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,22 +75,12 @@
 }
 
 .tasksList {
-  background-color: antiquewhite;
-}
-
-.form-select:focus {
-  border: 0px;
-  box-shadow: "none";
-}
-
-.form-select:hover {
-  border: 0px;
-  box-shadow: "none";
-}
-
-.form-select:active {
-  border: 0px;
-  box-shadow: "none";
+  background-color: rgba(229, 217, 210, 0.8);
+  backdrop-filter: blur(3px);
+  border-radius: 5px;
+  height: 250px;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .titleInput {
@@ -96,7 +93,35 @@
 
 .typeContainer {
   backdrop-filter: blur(5px);
-  border: 1px solid black;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 5;
+  border: 1px solid white;
+  background-color: rgba(169, 143, 117, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn:focus,
+.form-select:focus,
+.titleInput {
+  outline: none !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.form-select option {
+  background-color: #fff;
+  color: #333;
+}
+
+.form-select option:hover,
+.form-select option:focus {
+  background-color: #333;
+  color: #fff;
+}
+
+.row {
+  margin: 0;
 }

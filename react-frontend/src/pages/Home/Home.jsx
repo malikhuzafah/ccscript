@@ -9,6 +9,17 @@ import ListIcon from "./ListIcon";
 const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
+  const [type, setType] = useState("all");
+  const [completed, setCompleted] = useState(false);
+  const [reload, setReload] = useState(false);
+  const task = {
+    title: "title",
+    completed: false,
+    createdAt: "2021-07-03T12:00:00.000Z",
+    updatedAt: "2021-07-03T12:00:00.000Z",
+    __v: 0,
+    _id: "60e0b4b0c3b0c71f0c3b0c71",
+  };
 
   const navigate = useNavigate();
 
@@ -26,7 +37,7 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [reload]);
 
   return (
     <>
@@ -72,6 +83,7 @@ const Home = () => {
                   )
                   .then((res) => {
                     setTitle("");
+                    setReload(!reload);
                     console.log(res.data);
                   })
                   .catch((err) => {
@@ -85,7 +97,7 @@ const Home = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
                 viewBox="0 0 448 512"
-                style={{ fill: "white" }}
+                style={{ fill: "#5e5250" }}
               >
                 <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
               </svg>
@@ -95,11 +107,19 @@ const Home = () => {
 
         <div className="row typeContainer">
           <div className="col-1">
-            <ListIcon height="25" />
+            <ListIcon height="25" style={{ marginTop: "5px" }} />
           </div>
-          <div className="col" style={{ margin: 0, padding: 0 }}>
+          <div
+            className="col"
+            style={{
+              margin: 0,
+              padding: 0,
+              marginLeft: "5px",
+              fontWeight: "bold",
+            }}
+          >
             <select
-              name=""
+              name="type"
               className="form-select col-3"
               style={{
                 border: "none",
@@ -107,11 +127,18 @@ const Home = () => {
                 color: "white",
                 margin: 0,
                 backgroundColor: "transparent",
+                fontWeight: "bold",
+              }}
+              onChange={(e) => {
+                console.log(e.target.value);
+                setType(e.target.value);
               }}
             >
-              <option value="">Your todos</option>
-              <option value="">Completed</option>
-              <option value="">Uncompleted</option>
+              <option selected value="all">
+                Your todos
+              </option>
+              <option value="completed">Completed</option>
+              <option value="uncompleted">Uncompleted</option>
             </select>
           </div>
           {/* <div className="col-1" style={{ width: 25, height: 25 }}>
@@ -120,9 +147,57 @@ const Home = () => {
         </div>
 
         <div className="tasksList">
-          {tasks.map((task) => {
-            return <div>{task.title}</div>;
-          })}
+          <div
+            className="row"
+            style={{
+              // height: 50,
+              padding: "20px 10px",
+              borderRadius: "10px",
+              borderBottom: "1px solid black",
+              width: "100%",
+              margin: 0,
+            }}
+          >
+            <div className="col-1">
+              <CheckCircleIcon height="30" />
+            </div>
+            <div
+              className="col-9"
+              style={{ textAlign: "start", fontSize: 20, marginLeft: "10px" }}
+            >
+              Task 1
+            </div>
+            <div className="col-1">
+              <DotIcon height="30" />
+            </div>
+          </div>
+          {/* {tasks.length > 0 ? (
+            type === "all" ? (
+              tasks.map((task) => {
+                return <div>{task.title}</div>;
+              })
+            ) : type === "completed" ? (
+              tasks.map((task) => {
+                return task.completed ? <div>{task.title}</div> : null;
+              })
+            ) : (
+              tasks.map((task) => {
+                return !task.completed ? <div>{task.title}</div> : null;
+              })
+            )
+          ) : (
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              No task today
+            </div>
+          )} */}
         </div>
       </div>
     </>
