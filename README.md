@@ -17,7 +17,7 @@ http://localhost:3000
 Frontend wil be available at the following link:
 http://localhost:3001
 
-Functionality
+## Functionality
 The MERN Stack Todo List Application allows users to create, edit, and delete todo items. Users can also mark todo items as complete. The application also supports user authentication and authorization, so only authenticated users can create, edit, and delete todo items.
 Here are the specific functionalities of the application:
 - Create todo items: Users can create new todo items by entering a title.
@@ -25,5 +25,6 @@ Here are the specific functionalities of the application:
 - Mark todo items as complete: Users can mark todo items as complete.
 - User authentication and authorization: The application supports user authentication and authorization, so only authenticated users can create, edit, and delete todo items.
 
+## Deployment
 The application is deployed at following link:
 https://ccscript-tkby-malikhuzafah.vercel.app/
