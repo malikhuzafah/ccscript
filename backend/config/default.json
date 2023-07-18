@@ -1,4 +1,4 @@
 {
-    "db": "mongodb://localhost/ccscript",
+    "db": "mongodb+srv://huzafahrajput10:ccript@cluster0.fujj4lo.mongodb.net/?retryWrites=true&w=majority",
     "jwtPrivateKey": "SomePrivateKey"
 }
