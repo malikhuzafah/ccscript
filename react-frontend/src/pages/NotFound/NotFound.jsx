@@ -10,7 +10,7 @@ const NotFound = () => {
         <div className="bottom-text">
           <p>
             Go back to{" "}
-            <Link className="bottom-text" to="/home">
+            <Link className="bottom-text" to="/">
               HomeScreen
             </Link>
           </p>

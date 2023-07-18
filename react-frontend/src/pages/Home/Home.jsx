@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ListIcon from "./ListIcon";
 import Collapsible from "../../components/Collapsible";
+import New from "../../components/New";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -30,7 +31,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <New>
       <div className="background"></div>
       <div className="logoutDiv">
         <button
@@ -162,7 +163,7 @@ const Home = () => {
           )}
         </div>
       </div>
-    </>
+    </New>
   );
 };
 

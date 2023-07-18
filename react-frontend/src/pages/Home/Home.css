@@ -89,9 +89,6 @@
   box-shadow: "none";
 }
 
-.btnConatiner {
-}
-
 .typeContainer {
   backdrop-filter: blur(5px);
   border: 1px solid white;
@@ -153,4 +150,22 @@
   margin-left: 10px;
   background-color: rgba(169, 143, 117, 0.5);
   width: "100%";
+}
+
+@media only screen and (max-width: 767px) {
+  .inner-div {
+    width: max-content;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .inner-div {
+    width: max-content;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }

@@ -47,7 +47,7 @@ const Login = (props) => {
                   .then((res) => {
                     console.log(res);
                     localStorage.setItem("token", res.data);
-                    window.location = "/home";
+                    window.location = "/";
                   })
                   .catch((err) => {
                     alert(err.response.data);
