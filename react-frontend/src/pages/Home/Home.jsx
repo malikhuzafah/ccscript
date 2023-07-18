@@ -28,11 +28,6 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
-    // axios.get("http://localhost:3000/api/tasks", {
-    //   headers: {
-    //     "x-auth-token": localStorage.getItem("token"),
-    //   },
-    // });
   }, []);
 
   return (

@@ -44,9 +44,24 @@ router.put("/:id", auth, async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
     if (!task) return res.status(400).send("No task was found for given id!");
+    if (task.userId !== req.user._id)
+      return res.status(401).send("You cannot update this task");
     if (req.body.title) task.title = req.body.title;
     if (req.body.isCompleted) task.isCompleted = req.body.isCompleted;
     await task.save();
+    return res.send(task);
+  } catch (err) {
+    return res.status(500).send("Something went wrong!");
+  }
+});
+
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    const task = await Task.findById(req.params.id);
+    if (!task) return res.status(400).send("No task was found for given id!");
+    if (task.userId !== req.user._id)
+      return res.status(401).send("You cannot delete this task");
+    await task.delete();
     return res.send(task);
   } catch (err) {
     return res.status(500).send("Something went wrong!");
