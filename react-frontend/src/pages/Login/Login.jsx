@@ -61,7 +61,7 @@ const Login = (props) => {
           <div className="bottom-text">
             <p>
               Already have an account?{" "}
-              <Link className="bottom-text" to="/">
+              <Link className="bottom-text" to="/register">
                 Register
               </Link>
             </p>
