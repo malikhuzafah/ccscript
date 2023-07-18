@@ -1,7 +1,7 @@
 # MERN Stack Todo List Application
 This repository contains a MERN stack todo list application with user authentication and authorization. The backend is in the backend folder and the frontend is in the react-frontend folder.
 
-Getting Started
+## Getting Started
 To get started, you will need to have Node.js and npm installed. Once you have Node.js and npm installed, you can install the dependencies by running the following command in the both the backend and frontend folders of the repository:
 npm install
 
