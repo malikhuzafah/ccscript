@@ -1,4 +1,4 @@
-MERN Stack Todo List Application
+# MERN Stack Todo List Application
 This repository contains a MERN stack todo list application with user authentication and authorization. The backend is in the backend folder and the frontend is in the react-frontend folder.
 
 Getting Started
